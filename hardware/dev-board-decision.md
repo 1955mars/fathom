@@ -50,3 +50,14 @@ https://digilent.com/shop/arty-a7-100t-artix-7-fpga-development-board/
 
 When Phase 4 begins, order **Digilent Pmod HDMI** (~$25):
 https://digilent.com/shop/pmod-hdmi-high-definition-multimedia-interface/
+
+## Order placed
+
+- **Date:** 2026-04-17
+- **Source:** Digilent direct
+- **Order number:** 203866
+- **Item:** 1 × Arty A7-100T — $299.00
+- **Shipping:** free
+- **Tax:** $29.91
+- **Total (USD):** $328.91
+- **Free cable included:** USB A to Micro-B (the programming/power cable)

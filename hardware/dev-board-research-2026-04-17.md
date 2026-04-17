@@ -6,7 +6,7 @@ Point-in-time snapshot of the FPGA board comparison that led to the [Arty A7-100
 
 | Feature | **Arty A7-100T** | **ULX3S-85F** | **DE10-Nano** | **Tang Mega 138K Pro Dock** |
 |---|---|---|---|---|
-| Price (2026) | ~$249 | ~$155 | ~$225 ($190 edu) | ~$100-130 |
+| Price (2026) | $299 | ~$155 | ~$225 ($190 edu) | ~$100-130 |
 | FPGA | Artix-7 XC7A100T | Lattice ECP5 LFE5U-85F | Cyclone V SoC (5CSEBA6) | Gowin GW5AST-138K |
 | Logic | 101k LCs / ~63k LUT6, 4.8 Mb BRAM | 84k LUT4, ~3.7 Mb BRAM | 110k LEs, 5.5 Mb BRAM + HPS | 138k LUT4, large BRAM |
 | On-board RAM | 256 MB DDR3L | 32 MB SDRAM (166 MHz) | 1 GB DDR3 (shared w/ HPS) | 1 GB DDR3 |
