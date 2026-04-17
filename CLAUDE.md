@@ -25,6 +25,14 @@ This is a learning-focused repository. The project's purpose is personal ownersh
 
 When unsure, ask the human. Defaulting to writing content violates the project's purpose. Defaulting to explaining or reviewing does not.
 
+## Context discipline
+
+Do not load the whole repository into context even when it fits. At any moment, in-context material should be limited to: the CONSTITUTION section in play, the current concept doc, the latest LOG entry, and the specific code file or exercise being worked. See CONSTITUTION §3.10.
+
+For research, heavy file reading, wide codebase searches, or long datasheets, delegate to subagents (the `Agent` tool). Summaries return; raw bulk stays out of the primary context.
+
+End every substantive session with a LOG entry that captures decisions, open questions, and what to pick up next. A future cold-start session should be able to resume from the latest LOG alone.
+
 ## Disclosure
 
 Any substantive AI involvement gets disclosed in the relevant commit message and, for published content, in a disclosure line on the post. See CONSTITUTION §3.6.

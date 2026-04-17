@@ -266,6 +266,24 @@ Tightening restrictions (making §3 stricter) does not require a cooling-off per
 
 `CLAUDE.md` at the repo root restates §3 in a form directly consumable by AI coding agents (Claude Code, Aider, Cursor, others). Any AI agent operating on this repository is expected to read and follow `CLAUDE.md`. It is the human author's responsibility to ensure each tool loads that file.
 
+### 3.10 Session and context hygiene
+
+A large context window does not imply uniform attention. Early content gets under-weighted; middle content gets *poisoned* by later repetition or subtle contradiction; long sessions silently lose quality. Across sessions, the AI has no conversational memory — the project's durable state must live in files. These rules protect quality over a multi-year project.
+
+**Session size.** One session per meaningful unit — per chapter, per concept, per milestone. Not per day, not per phase. Marathons dilute attention; split them. When substantive work has been running 3+ hours, stop, commit, and start fresh.
+
+**LOG as handoff.** Every session ends with a LOG entry capturing what would be lost if the conversation disappeared: decisions, open questions, what to pick up next. A cold-start future session reading the latest LOG entry should be able to resume without reconstructing yesterday.
+
+**Context-load discipline.** Even when the whole repository *fits*, the whole repository should not be loaded into context. At any moment, in-context material is limited to: the CONSTITUTION section in play, the current concept doc, the latest LOG entry, and the specific code file or exercise being worked. Reading "for completeness" hurts attention on the real work.
+
+**Delegate to subagents.** Research, large-file reading, wide codebase searches, long datasheets — delegate to the Agent tool. Subagents run in isolated context; only their summary returns. This preserves the primary session for decisions and synthesis.
+
+**Memory files stay indexical.** The auto-loaded memory files at `~/.claude/projects/-Users-mansoor/memory/` are pointers, not knowledge dumps. Project memory growing past ~100 lines is a warning sign; refactor into smaller focused files.
+
+**Prefer fresh over compacted.** Claude Code's `/compact` is lossy. When a session is heavy, ending and restarting produces cleaner context than compacting. Restart unless there is a specific reason not to.
+
+**Exception.** Multi-topic setup sessions — like the one that produced the original CONSTITUTION — are allowed when topics genuinely interlock and the work isn't substantive learning. Phase work is not such an exception.
+
 ## 4. Content system
 
 ### 4.1 Principle
