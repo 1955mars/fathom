@@ -1,11 +1,21 @@
 # AI Workspace
 
-This directory holds everything related to AI use in the Fathom project.
+This directory holds Fathom's AI-in-the-loop materials.
 
-- **Rules and boundaries** — what AI may and may not do. Defined in [../CONSTITUTION.md](../CONSTITUTION.md) §3.
-- **Prompt templates** — reusable prompts for recurring tasks (reviewing my Verilog, quizzing me on a chapter, fact-checking a blog draft).
-- **Transcript archive** — saved conversations that shaped a decision or learning milestone, for future reference and for transparency.
+## Structure
 
-**Guiding principle:** AI is a tutor, reviewer, and editor — not an author. Every artifact in this repository is mine first; AI involvement is disclosed in content.
+- **`prompts/`** — reusable prompt templates (code review, concept quizzing, Feynman-doc gap review, etc.). Populated as patterns emerge.
+- **`transcripts/`** — saved conversations that shaped a decision or milestone. Filenames: `YYYY-MM-DD-short-slug.md`. Ephemeral chats are not archived.
 
-*Contents pending — populated after CONSTITUTION §3 is drafted.*
+## Rules
+
+- Allowed and forbidden uses: [../CONSTITUTION.md](../CONSTITUTION.md) §3.
+- Machine-readable rules for AI coding agents: [../CLAUDE.md](../CLAUDE.md).
+
+## Principle
+
+AI is a tutor, reviewer, and editor — never an author, designer, or answer-vending machine. Every artifact in this repository is mine first; AI involvement is post-hoc and audit-trailed.
+
+## The "state first" rule
+
+Before asking AI a conceptual question: state (1) my current belief, (2) where specifically I'm stuck, (3) what reference material I've already consulted. Asking "what is X?" cold is forbidden (CONSTITUTION §3.5).

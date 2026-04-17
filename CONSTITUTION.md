@@ -185,7 +185,86 @@ Closes the loop between theory (the Feynman doc) and implementation. Enforced by
 
 ## 3. AI-in-the-loop rules
 
-*pending*
+### 3.1 Principle
+
+The purpose of Fathom is personal ownership of every layer of the computer I'm building. AI is a powerful tool that can short-circuit ownership invisibly — often without me noticing until months later, when a topic I thought I knew turns out hollow. This section defines allowed and forbidden uses so convenience does not erode depth.
+
+AI in Fathom is a **tutor, reviewer, and editor** — never an author, designer, or answer-vending machine. Every artifact in this repository is mine first; AI involvement is post-hoc and audit-trailed.
+
+### 3.2 Tool inventory
+
+**Permitted:**
+- Conversational AI (Claude, ChatGPT, Gemini, or equivalent) for explanation, critique, quizzing, review.
+
+**Forbidden:**
+- Inline code completion (GitHub Copilot, Cursor Tab, Codeium, Supermaven, or equivalent) anywhere in `code/`. The friction of typing code yourself is part of the learning. Not disabled for convenience.
+
+**Currently disallowed, amendment required to adopt:**
+- Agentic coding tools (Cursor Composer, Claude Code in write mode, Aider, etc.) operating on `code/`, `hardware/`, or `notes/concepts/`. Permitted for repo-level maintenance only: LOG entries, CI, `.gitignore`, cross-linking hygiene, setup scripts.
+
+### 3.3 Allowed uses
+
+- **Explain concepts** I'm confused about, after I've stated my current understanding and specific confusion (see §3.5).
+- **Find gaps** in a Feynman doc I've already drafted cold.
+- **Quiz me** on material I've written, using the concept file as reference.
+- **Review code** I've already written, for bugs, style, clarity, and alignment with documented intent.
+- **Polish language** in blog drafts I've already written in full.
+- **Summarize external references** (datasheets, papers, specs) I don't have time to read cover-to-cover.
+- **Translate jargon** — look up a term or acronym I don't recognize.
+- **Devil's advocate** on design decisions I've made, to stress-test my reasoning.
+
+### 3.4 Forbidden uses
+
+- Writing HDL, C, assembly, or any implementation file in Fathom — at all. Not even as "scaffold I'll rewrite."
+- Producing the first draft of a Feynman doc in `notes/concepts/`. First drafts are cold, mine, and without AI assistance.
+- Designing any architectural decision: ISA, memory map, pipeline, GPU architecture, protocol, filesystem layout, PCB layout, bus protocol, interrupt scheme, etc.
+- Writing the first draft of any blog post or video script intended for publication.
+- Solving an exercise before I've attempted it in full.
+- Answering a conceptual question cold, before I've stated what I think and where I'm stuck.
+
+### 3.5 The "state first" rule
+
+Before asking AI a question about understanding, I must state:
+
+1. What I currently believe the answer is, or "I don't know — here's my best guess."
+2. Where specifically I'm stuck.
+3. What reference material I've already consulted.
+
+Non-negotiable. This is what preserves the struggle that creates ownership. Asking "what is X?" cold is forbidden; asking "I think X is Y because Z, but I can't reconcile it with W — where am I wrong?" is the permitted shape.
+
+### 3.6 Disclosure
+
+**Standing AI policy page.** A public-facing summary of §3 is published on the blog (as `ai-policy.md` or equivalent), kept in sync with this section. Audience transparency is part of doing this in public.
+
+**Per-post disclosure.** Every public blog post and video ends with one line describing AI's role in producing it. Examples:
+
+- "AI was not used in producing this post."
+- "AI was used to review this post for gaps; no content was AI-generated."
+- "AI was used to polish phrasing in the introduction and conclusion."
+
+No puffery, no hedging. A reader should be able to trust the disclosure verbatim.
+
+### 3.7 Archival
+
+- **`ai/prompts/`** — reusable prompt templates (code review, concept quizzing, Feynman-doc gap review, etc.). Committed. Populated as patterns emerge.
+- **`ai/transcripts/`** — saved transcripts that shaped a decision or milestone. Filenames: `YYYY-MM-DD-short-slug.md`. Committed.
+- **Ephemeral use not archived.** Examples: looking up a term, a quick sanity check, a one-off explanation.
+
+Heuristic: if the conversation changed my mind about something, or if future-me would benefit from seeing what I asked and why, save it.
+
+### 3.8 Amendment (stricter than other sections)
+
+§3 exists specifically to protect the ownership principle. Loosening its restrictions (i.e., permitting something previously forbidden) requires:
+
+1. A written argument in a new LOG entry explaining why the restriction is no longer serving the project's goal.
+2. A **7-day cooling-off period** before the amendment can be applied. The period forces the decision out of whatever frustration or shortcut-craving triggered it.
+3. The commit applying the amendment must reference the LOG entry.
+
+Tightening restrictions (making §3 stricter) does not require a cooling-off period.
+
+### 3.9 Machine-readable enforcement
+
+`CLAUDE.md` at the repo root restates §3 in a form directly consumable by AI coding agents (Claude Code, Aider, Cursor, others). Any AI agent operating on this repository is expected to read and follow `CLAUDE.md`. It is the human author's responsibility to ensure each tool loads that file.
 
 ## 4. Content system
 
