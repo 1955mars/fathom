@@ -42,3 +42,10 @@ xsim.dir/
 # Large binaries / generated
 *.log
 *.tmp
+
+# Obsidian — commit only the plugin whitelist (CONSTITUTION §2.7)
+.obsidian/*
+!.obsidian/community-plugins.json
+
+# Private recordings — gate test, not for distribution (CONSTITUTION §1.4)
+content/videos/private/

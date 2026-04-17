@@ -92,7 +92,96 @@ Because the artifact is an explanation, retention testing means rehearsing the e
 
 ## 2. Organization system
 
-*pending*
+### 2.1 Tool
+
+**Obsidian** is the primary interface over the repository's markdown. Markdown files remain the source of truth; Obsidian is a lens, not a dependency. If Obsidian disappears tomorrow, every file stays readable and editable in any text editor. This constraint is enforced by keeping vault contents as plain markdown and `.obsidian/` config minimal.
+
+### 2.2 Vault scope
+
+The entire Fathom repository is a single Obsidian vault. One `.obsidian/` folder lives at the repo root. This is deliberate: notes, code files, LOG entries, and blog drafts are all linkable by the same syntax, and the graph view spans the whole project.
+
+### 2.3 Folder roles for knowledge
+
+- **`notes/<source>/`** — source-bound notes: chapter summaries, exercise solutions, running questions, margin notes. One folder per source material (e.g., `notes/nand2tetris/`, `notes/harris-harris/`).
+- **`notes/concepts/`** — the canonical home for Feynman docs. One file per concept, source-agnostic.
+- A concept is *born* in a source folder (as rough running notes) and *graduates* to `notes/concepts/` once it passes the §1.5 success criterion. Use `git mv` when graduating so history is preserved.
+
+Rationale: concepts like "two's complement" appear in multiple books and labs. A single canonical file, backlinked from each source, prevents drift and duplication.
+
+### 2.4 Filenames
+
+- Kebab-case slug filenames: `nand-gate.md`, `twos-complement.md`, `single-cycle-datapath.md`.
+- First line inside each file is the pretty title as a top-level heading: `# Two's Complement`.
+- Wikilinks reference by slug: `[[nand-gate]]`. Obsidian displays the heading if present.
+- LOG entries use ISO-8601 filenames: `LOG/2026-04-17.md`.
+
+### 2.5 Required cross-links
+
+Non-negotiable. The knowledge graph is only useful if the edges are there.
+
+1. **Every concept doc** has, near its end, sections linking to:
+   - **Sources** — where this was learned (book + chapter, lab, paper)
+   - **Prerequisites** — concepts that must be owned before this one is readable
+   - **Enables** — concepts that become readable once this one is owned
+2. **Every LOG entry** links to the concepts worked on, commits made, and blockers encountered that day.
+3. **Every blog post draft** links to the concept docs it builds on.
+
+### 2.6 Plugin whitelist
+
+Only three plugins are permitted at project start:
+
+- **Excalidraw** — hand-drawn diagrams (timing, waveforms, sketches)
+- **Dataview** — auto-generated indexes and status tables
+- **Templater** — templates for Feynman docs, LOG entries, blog posts
+
+No theme plugins, no dashboard kits, no "second brain starter" packs. Adding a plugin requires a §2 amendment (commit message must reference it). The whitelist lives in `.obsidian/community-plugins.json` and is committed.
+
+### 2.7 `.obsidian/` git policy
+
+Vault configuration is mostly ignored; only the plugin whitelist is tracked, so the vault is reproducible on a fresh clone.
+
+- **Committed:** `.obsidian/community-plugins.json`
+- **Ignored:** everything else in `.obsidian/` (workspace state, caches, graph view, plugin binaries, themes, app settings)
+
+### 2.8 Tags
+
+Tags are deliberate and limited. The taxonomy at project start:
+
+- **Phase:** `#phase-0`, `#phase-1`, `#phase-2`, `#phase-3`, `#phase-4`, `#phase-5`, `#phase-6`
+- **Domain:** `#hardware`, `#software`, `#toolchain`, `#os`, `#networking`, `#gpu`, `#pcb`
+- **Tool:** `#tool/verilog`, `#tool/c`, `#tool/kicad`, `#tool/yosys`, `#tool/icarus`, etc.
+- **Status (concept lifecycle):** `#status/draft`, `#status/cold-write`, `#status/fluid-speak`, `#status/passed`, `#status/hollow`
+
+Adding a new tag *category* requires a §2 amendment. Individual tags within existing categories can be added freely.
+
+### 2.9 Indexes
+
+- **`notes/INDEX.md`** — hand-curated top-level map. The "table of contents" for the brain. Updated at natural milestones.
+- **Dataview tables** — auto-generated per-phase, per-source, per-status indexes, defined as Dataview queries embedded in the relevant markdown files.
+
+Findability at year-four scale depends on both: hand-curated for narrative navigation, auto-generated for exhaustive listing.
+
+### 2.10 Concept ↔ code link
+
+When a concept is implemented in code (e.g., the ALU concept in `code/phase-1-cpu/alu.v`):
+
+- The concept doc has an **Implementation** section linking to the code file(s).
+- The code file's top comment links back to the concept doc.
+
+Closes the loop between theory (the Feynman doc) and implementation. Enforced by convention.
+
+### 2.11 Backup
+
+- **Primary:** GitHub remote. Push at the end of every working session, minimum daily.
+- **Secondary:** macOS Time Machine. Must be configured before Phase 0 begins.
+- **Forbidden:** iCloud Drive, Dropbox, OneDrive, or any real-time-sync service on the `fathom/` folder. These conflict with git internals and Obsidian's workspace state and cause real data loss, not theoretical.
+
+### 2.12 Forbidden patterns
+
+- Silently renaming concept files (breaks wikilinks). Always `git mv` and fix inbound links in the same commit.
+- Orphan concept docs (no inbound links). Every concept must be reachable from at least one source doc or another concept.
+- Committing private recordings (§1.4). `content/videos/private/` is gitignored; verify before push.
+- Putting anything else in `.obsidian/` under version control without a §2 amendment.
 
 ## 3. AI-in-the-loop rules
 
