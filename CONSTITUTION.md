@@ -173,8 +173,12 @@ Closes the loop between theory (the Feynman doc) and implementation. Enforced by
 ### 2.11 Backup
 
 - **Primary:** GitHub remote. Push at the end of every working session, minimum daily.
-- **Secondary:** macOS Time Machine. Must be configured before Phase 0 begins.
+- **Secondary:** macOS Time Machine configured on an external USB-C SSD (or equivalent). **Required within 30 days of Phase 0 start**, not before.
 - **Forbidden:** iCloud Drive, Dropbox, OneDrive, or any real-time-sync service on the `fathom/` folder. These conflict with git internals and Obsidian's workspace state and cause real data loss, not theoretical.
+
+**Rationale for the 30-day delay.** During the first 30 days of Phase 0, GitHub is sole backup. This is acceptable because (a) early Phase 0 work is entirely git-backed — no meaningful local-only state exists yet; and (b) buying an external SSD before the project has proven consistency is premature hardware investment. If the project is still active at day 30, the hardware commitment is earned and Time Machine is configured then.
+
+**"Day 30" definition.** 30 calendar days measured from the first LOG entry tagged `#phase-0-start`. The pre-Phase-0 setup period does not count toward the 30.
 
 ### 2.12 Forbidden patterns
 
