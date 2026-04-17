@@ -268,4 +268,76 @@ Tightening restrictions (making §3 stricter) does not require a cooling-off per
 
 ## 4. Content system
 
-*pending*
+### 4.1 Principle
+
+Publishing is a first-class output of Fathom, not an afterthought. But publishing overhead can eat a multi-year project if the system is wrong. §4 makes publishing cheap enough to actually happen and strict enough to remain meaningful.
+
+The content system sits *on top of* the learning system. **Every public piece builds on a Feynman doc that already exists.** Content is never the first draft; content is the polished derivative.
+
+### 4.2 Channels
+
+The Fathom content stack, in priority order:
+
+- **GitHub README** (always visible) — phase status, latest milestones, links to posts and videos. The live homepage.
+- **Long-form blog** (primary channel) — polished posts built on top of Feynman docs. In-repo markdown, static-site generated, deployed to a custom domain.
+- **YouTube** (secondary) — long-form videos of real work: bring-up, debugging, explanations. Added when audio/recording setup is good enough; not before.
+- **Short-form** (X/Mastodon/Bluesky) — in-the-moment discoveries, milestone teasers, short threads. Free-form.
+- **Aggregators** (Hacker News, relevant subreddits) — used *only* on major milestones (end of phase, significant demo). Not for individual blog posts unless they stand alone.
+- **Newsletter** — deferred. May be added later if audience asks. Amendment required.
+
+### 4.3 Cadence
+
+- **Long-form (blog, video):** milestone-driven. A post goes out when a meaningful milestone lands — not on a calendar. Rationale: a fixed schedule forces filler; filler hollows a project's reputation faster than silence does.
+- **Short-form:** free-form. On-whim when something genuinely worth sharing happens.
+- **README:** updated at every milestone commit.
+- **LOG:** daily during active working days (not public-facing content, but visible in the public repo).
+
+A "milestone" is: a batch of concepts passing the §1.5 success criterion; a phase transition; a working demo (blink-an-LED counts); a significant rewrite or correction; a discovered gap worth explaining.
+
+### 4.4 Hosting
+
+- **Source:** in-repo static site. Markdown + frontmatter at `content/blog/`. Built and deployed by CI on push to `main`.
+- **Generator:** **Quartz** is the default (Obsidian-native — `[[wikilinks]]` and graph view render on the web). **Astro** is the fallback if Quartz becomes limiting. Final choice made at infrastructure-setup time.
+- **Deploy target:** Cloudflare Pages or GitHub Pages. Free tier, custom domain supported.
+- **Domain:** registered before the first post goes live. TBD at setup time (candidates: `fathom.dev`, `fathom.build`, a subdomain of a personal domain).
+
+### 4.5 Brand and voice
+
+- **Author attribution:** real name, "Mansoor." No pseudonym.
+- **Project attribution:** content is project-branded — posts are "from Fathom," not "Mansoor's blog." The project is the persistent identity.
+- **Voice:** technical, personal, precise. First-person. Not tutorial, not clickbait. Model to aim for: *a skilled engineer explaining their own work to a peer who hasn't seen it.*
+- **Visual identity:** start with typography only (repo logo, favicon). Evolve after the first ~10 posts, once voice has settled. Do not spend time on branding before writing exists.
+
+### 4.6 Draft pipeline
+
+1. Feynman doc(s) for the relevant concept(s) pass the §1.5 success criterion.
+2. Draft file created at `content/blog/drafts/YYYY-MM-DD-slug.md`.
+3. Draft written in full by me (§3.4 applies — AI does not produce the first draft).
+4. AI review allowed (§3.3): gap-check and language polish on the complete draft.
+5. Draft re-read 24+ hours later; revise if unclear (same principle as §1.5).
+6. When ready: `git mv content/blog/drafts/… content/blog/published/…`, update frontmatter with publish date and disclosure line, commit, push. CI builds and deploys.
+7. If a concept referenced in a published post later goes hollow (§1.8) and the post is affected: publish a revision. Keep the original accessible; add a changelog section.
+
+### 4.7 Disclosure and integrity
+
+Every published post ends with three sections:
+
+- **AI disclosure line** (see §3.6).
+- **Primary sources** — links to the concept docs, commits, and code files underlying the post. A reader can dig as deep as they want.
+- **Corrections** (if any) — updates made since initial publish.
+
+No affiliate links, no sponsored content, no tracking beyond what the static host needs. Advertising or sponsorship, if ever considered, requires an amendment.
+
+### 4.8 First post
+
+Before Phase 0 begins, one meta-post publishes: **"Why Fathom"** — explaining the project, the constitution, and the invitation to follow along. The constitution being complete is itself the first publishable milestone.
+
+### 4.9 Infrastructure setup timing
+
+Blog infrastructure (static site generator, hosting, domain, CI) is configured **before Phase 0 begins**, so the first post can publish with zero new setup overhead. Setup is part of completing the constitution's preconditions, not part of Phase 0.
+
+### 4.10 Amendment
+
+§4 can be amended to adjust cadence, add channels, change hosting, or update the brand. No cooling-off period required (unlike §3).
+
+The one rule that cannot be relaxed by amendment: §4.1's principle that content is always derivative of a Feynman doc that already exists.

@@ -6,15 +6,17 @@ Inspired by Bart Pleiter's [FPGC](https://github.com/bartpleiter/FPGC).
 
 This repository is both the codebase and the devlog.
 
-- **[CONSTITUTION.md](CONSTITUTION.md)** — the rules I've set myself (learning, AI use, organization, content)
+- **[CONSTITUTION.md](CONSTITUTION.md)** — the rules I've set myself (learning, organization, AI use, content)
+- **[CLAUDE.md](CLAUDE.md)** — machine-readable rules for AI coding agents (derives from CONSTITUTION §3)
 - **[ROADMAP.md](ROADMAP.md)** — the phased plan
+- **[SETUP.md](SETUP.md)** — one-time local setup instructions
 - **[LOG/](LOG/)** — the lab notebook, one entry per working day
-- **[notes/](notes/)** — topical learning notes, structured by source
+- **[notes/](notes/)** — topical learning notes, structured by source, with a canonical `concepts/` for Feynman docs
 - **[code/](code/)** — implementation work, organized by phase
-- **[content/](content/)** — blog posts and video scripts
+- **[content/](content/)** — blog posts (`blog/drafts/`, `blog/published/`) and video materials (`videos/public/`)
 - **[library/](library/)** — collected PDFs, datasheets, papers
-- **[ai/](ai/)** — AI rules, prompt templates, transcript archive
+- **[ai/](ai/)** — AI workflow: prompts and saved transcripts (see CONSTITUTION §3)
 
 ## Status
 
-Phase 0 — Foundations. Started 2026-04-17.
+Pre-Phase 0 — constitution drafted (2026-04-17). Blog infrastructure setup is the final precondition before Phase 0 begins.
