@@ -330,11 +330,15 @@ No affiliate links, no sponsored content, no tracking beyond what the static hos
 
 ### 4.8 First post
 
-Before Phase 0 begins, one meta-post publishes: **"Why Fathom"** — explaining the project, the constitution, and the invitation to follow along. The constitution being complete is itself the first publishable milestone.
+The first post is **"Why Fathom"** — a meta-post explaining the project, the constitution, and the invitation to follow along. It publishes *when I am ready to start sharing*, not before. "Ready" means: comfortable with the Feynman workflow in practice; confident enough in the learning cadence that adding a public audience will not pressure it; enough concept docs and LOG entries in the repo that the post has substance to point at.
+
+Waiting is explicit and deliberate. Publishing too early risks making content cadence compete with learning cadence — exactly what §4.1 was written to prevent. Better to publish real depth later than shallow progress early.
 
 ### 4.9 Infrastructure setup timing
 
-Blog infrastructure (static site generator, hosting, domain, CI) is configured **before Phase 0 begins**, so the first post can publish with zero new setup overhead. Setup is part of completing the constitution's preconditions, not part of Phase 0.
+Blog infrastructure (static site generator, hosting, domain, CI) is configured *when I decide to start publishing*, not as a gate on Phase 0. Setup is itself a milestone; once it lands, the first post follows on a short cadence.
+
+The LOG is still written from day one (§2.9, §4.3). A public repo with an honest lab notebook communicates progress to anyone who looks, even without a formal blog.
 
 ### 4.10 Amendment
 

@@ -19,4 +19,4 @@ This repository is both the codebase and the devlog.
 
 ## Status
 
-Pre-Phase 0 — constitution drafted (2026-04-17). Blog infrastructure setup is the final precondition before Phase 0 begins.
+Pre-Phase 0 — constitution drafted (2026-04-17). Publishing is deferred until the learning process is comfortable; the LOG remains daily from day one. Phase 0 begins once Obsidian setup, Time Machine, and dev hardware are in place.
